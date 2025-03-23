@@ -90,7 +90,7 @@ RUN chown root:www-data ./ \
 
 # Configure Supervisor
 COPY docker/supervisord.conf /etc/supervisord.conf
-COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
+COPY docker/nginx.conf /etc/nginx/http.d/default.conf
 # Add Laravel scheduler to crontab
 COPY docker/crontab /etc/supercronic/crontab
 
