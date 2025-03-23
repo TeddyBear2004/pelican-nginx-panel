@@ -68,7 +68,7 @@ WORKDIR /var/www/html
 
 # Install additional required libraries
 RUN apk update && apk add --no-cache \
-    nginx ca-certificates supervisor supercronic
+    nginx ca-certificates supervisor supercronic redis
 
 COPY --chown=root:www-data --chmod=640 --from=composerbuild /build .
 COPY --chown=root:www-data --chmod=640 --from=yarnbuild /build/public ./public
