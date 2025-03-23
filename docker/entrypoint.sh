@@ -45,7 +45,7 @@ export SUPERVISORD_CADDY=false
 if [[ "${SKIP_CADDY:-}" == "true" ]]; then
   echo "Starting PHP-FPM only"
 else
-  echo "Starting PHP-FPM and Caddy"
+  echo "Starting PHP-FPM and nginx"
   export SUPERVISORD_CADDY=true
 fi
 
