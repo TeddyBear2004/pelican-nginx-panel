@@ -7,8 +7,8 @@ ADD --chmod=0755 https://github.com/mlocati/docker-php-extension-installer/relea
 
 RUN install-php-extensions bcmath gd intl zip opcache pcntl posix pdo_mysql \
     && mkdir -p /usr/local/etc/php/conf.d \
-    && echo "upload_max_filesize=40M" > /usr/local/etc/php/conf.d/docker-php-upload-limits.ini \
-    && echo "post_max_size=40M" >> /usr/local/etc/php/conf.d/docker-php-upload-limits.ini \
+    && echo "upload_max_filesize=200M" > /usr/local/etc/php/conf.d/docker-php-upload-limits.ini \
+    && echo "post_max_size=200M" >> /usr/local/etc/php/conf.d/docker-php-upload-limits.ini \
 
 RUN rm /usr/local/bin/install-php-extensions
 
