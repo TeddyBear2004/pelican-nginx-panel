@@ -5,7 +5,10 @@ FROM --platform=$TARGETOS/$TARGETARCH php:8.3-fpm-alpine as base
 
 ADD --chmod=0755 https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 
-RUN install-php-extensions bcmath gd intl zip opcache pcntl posix pdo_mysql
+RUN install-php-extensions bcmath gd intl zip opcache pcntl posix pdo_mysql \
+    && mkdir -p /usr/local/etc/php/conf.d \
+    && echo "upload_max_filesize=40M" > /usr/local/etc/php/conf.d/docker-php-upload-limits.ini \
+    && echo "post_max_size=40M" >> /usr/local/etc/php/conf.d/docker-php-upload-limits.ini \
 
 RUN rm /usr/local/bin/install-php-extensions
 
